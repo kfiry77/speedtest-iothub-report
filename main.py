@@ -28,8 +28,7 @@ if __name__ == '__main__':
 
     line = result.stdout.decode()
 
-    with open("Log/speedtestresults.log", "a") as file_object:
-        # Append 'hello' at the end of file
+    with open(dic['logfile'], "a") as file_object:
         file_object.write(line)
 
     output = json.loads(line)
