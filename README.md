@@ -35,6 +35,8 @@ A telemetry report of internet connection speed to Azure iot hub
 - https://www.speedtest.net/apps/cli
 
 ### TODO:
-[] Send the telemetry to cosmos-db
+[v] Send the telemetry to cosmos-db
 [] create a script that build the azure deployment. 
+[] Add git hook for a automatic updates on the device. 
+
 
