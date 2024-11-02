@@ -18,9 +18,13 @@ A telemetry report of internet connection speed to Azure iot hub
    git clone https://github.com/kfiry77/speedtest-iothub-report.git
    cd speedtest-iothub-report
    ``` 
-1. create virtual environment ```python3 -m venv ./venv ```
-1. create ``config.json`` in application folder
-1. modify config.json:
+1. create virtual environment and install python packages. 
+   ```sh
+   python3 -m venv ./venv
+   source venv/bin/activate
+   pip3 install -r requirements.txt
+   ```
+1. create ``config.json`` in application folder with the following format: 
    ```json
    {
     "connection_string": "HostName=IOT_HUB_NAME.azure-devices.net;DeviceId=_DEVICE_ID;SharedAccessKey=DEVICE_SAS",
