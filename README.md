@@ -12,24 +12,26 @@ A telemetry report of internet connection speed to Azure iot hub
 
 ### 2. Device Application
 
-1. speedtest cli tool as it described (here)[https://www.speedtest.net/apps/cli] 
-1. clone this repository
+1. install speedtest cli tool as it described [here](https://www.speedtest.net/apps/cli)
+1. clone this repository and enter the create directory
+   ```sh
+   git clone https://github.com/kfiry77/speedtest-iothub-report.git
+   cd speedtest-iothub-report
+   ``` 
+1. create virtual environment ```python3 -m venv ./venv ```
 1. create ``config.json`` in application folder
 1. modify config.json:
-```json
-{
-  "connection_string": "HostName=IOT_HUB_NAME.azure-devices.net;DeviceId=_DEVICE_ID;SharedAccessKey=DEVICE_SAS",
-  "logfile": "./Log/speedtest.log"
-}
-```
-
-5. use the command ```crontab -e``` and sdd the following line to crontab for lines for periodic telemetrics 
-```shell
-# speedtest telemetry
-*/30 * * * * python3 /path/to/repo main.py & 
-
-```
-
+   ```json
+   {
+    "connection_string": "HostName=IOT_HUB_NAME.azure-devices.net;DeviceId=_DEVICE_ID;SharedAccessKey=DEVICE_SAS",
+    "logfile": "./Log/speedtest.log"
+   }
+   ```
+1. use the command ```crontab -e``` and sdd the following line to crontab for lines for periodic telemetrics 
+   ```sh
+   # speedtest telemetry
+   */30 * * * * (/bin/bash -c "cd /path/to/repo && source venv/bin/activate && python3 main.py  >> /path/to/logfile.log 2>&1 &")
+   ```
 ### references:
 
 - https://www.speedtest.net/apps/cli
